@@ -17,14 +17,14 @@ class ResultBase<T, E extends Error> {
     }
     map<U>(f: (v: T) => U): Result<U, E> {
         return this.match<Result<U, E>>(
-            (v) => new Ok(f(v)),
-            (e) => new Err(e),
+            (v) => ok(f(v)),
+            (e) => err(e),
         );
     }
     mapErr<F extends Error>(f: (e: E) => F): Result<T, F> {
         return this.match<Result<T, F>>(
-            (v) => new Ok(v),
-            (e) => new Err(f(e)),
+            (v) => ok(v),
+            (e) => err(f(e)),
         );
     }
     unwrapOr(v: T): T {
@@ -42,7 +42,7 @@ class ResultBase<T, E extends Error> {
     andThen<U>(f: (v: T) => Result<U, E>): Result<U, E> {
         return this.match<Result<U, E>>(
             (v) => f(v),
-            (e) => new Err(e),
+            (e) => err(e),
         );
     }
 }
