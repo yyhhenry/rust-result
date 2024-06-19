@@ -13,12 +13,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Dependencies
         run: npm install
-      - name: Test
-        run: npm run test
-      - name: Lint
-        run: npm run lint
-      - name: Type Check
-        run: npm run type-check
+      - name: Check All
+        run: npm run check:all
       - name: Build
         run: npm run build
       - name: Publish NPM
