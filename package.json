@@ -11,14 +11,14 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/lib.js",
+  "exports": "./dist/lib.js",
   "types": "./dist/lib.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/yyhhenry/rust-result"
   },
   "scripts": {
-    "type-check": "tsc --noEmit -p jsconfig.json",
+    "type-check": "tsc --noEmit -p tsconfig.json",
     "build": "tsup",
     "format": "prettier --write .",
     "lint": "eslint -c eslint.config.mjs",
