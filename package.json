@@ -7,7 +7,7 @@
     "error",
     "typescript"
   ],
-  "description": "Use Result type of Rust in TypeScript",
+  "description": "Rust-like error handling in TypeScript.",
   "files": [
     "dist"
   ],
