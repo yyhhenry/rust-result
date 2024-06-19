@@ -140,12 +140,17 @@ test("safely", async () => {
     assert.deepStrictEqual(result.unwrapOr(null), { a: 1 });
 
     const invalidJson = "invalid json";
+    let errStr = "";
+    try {
+        JSON.parse(invalidJson);
+    } catch (e) {
+        if (e instanceof Error) {
+            errStr = e.message;
+        }
+    }
     const result2 = safeJsonParse(invalidJson);
     assert.strictEqual(result2.isErr(), true);
-    assert.strictEqual(
-        result2.isErr() && result2.unwrapErr().message,
-        `Unexpected token 'i', "invalid json" is not valid JSON`,
-    );
+    assert.strictEqual(result2.isErr() && result2.unwrapErr().message, errStr);
 
     const asyncJsonParse = (s: string): Promise<unknown> =>
         Promise.resolve(JSON.parse(s));
@@ -157,8 +162,5 @@ test("safely", async () => {
     assert.deepStrictEqual(result3.isOk() && result3.unwrap(), { a: 1 });
 
     const result4 = await safeAsyncJsonParse(invalidJson);
-    assert.strictEqual(
-        result4.isErr() && result4.unwrapErr().message,
-        `Unexpected token 'i', "invalid json" is not valid JSON`,
-    );
+    assert.strictEqual(result4.isErr() && result4.unwrapErr().message, errStr);
 });
