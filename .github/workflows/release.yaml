@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
+      - name: Test
+        run: npm run test
+      - name: Lint
+        run: npm run lint
+      - name: Type Check
+        run: npm run type-check
+      - name: Build
+        run: npm run build
+      - name: Publish NPM
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPMJS_TOKEN }}
