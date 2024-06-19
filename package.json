@@ -39,9 +39,7 @@
     "tsup": "^8.1.0",
     "tsx": "^4.15.6",
     "typescript": "^5.4.5",
-    "typescript-eslint": "8.0.0-alpha.30"
-  },
-  "dependencies": {
+    "typescript-eslint": "8.0.0-alpha.30",
     "npm-run-all2": "^6.2.0"
   }
 }
