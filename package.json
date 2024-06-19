@@ -11,7 +11,7 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/lib.js",
+  "exports": "./dist/lib.js",
   "types": "./dist/lib.d.ts",
   "repository": {
     "type": "git",
