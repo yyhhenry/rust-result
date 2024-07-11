@@ -1,6 +1,6 @@
 {
   "name": "@yyhhenry/rust-result",
-  "version": "0.1.3",
+  "version": "0.3.0",
   "type": "module",
   "keywords": [
     "rust",
@@ -8,20 +8,15 @@
     "typescript"
   ],
   "description": "Rust-like error handling in TypeScript.",
-  "files": [
-    "dist"
-  ],
-  "exports": "./dist/lib.js",
-  "types": "./dist/lib.d.ts",
+  "exports": "./src/lib.ts",
+  "types": "./src/lib.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/yyhhenry/rust-result"
   },
   "scripts": {
     "type-check": "tsc --noEmit -p tsconfig.json",
-    "build": "tsup",
-    "format": "prettier --write .",
-    "lint": "eslint -c eslint.config.mjs",
+    "lint": "oxlint -D pedantic -A max-classes-per-file --fix",
     "test": "tsx --test src/lib.test.ts",
     "check:all": "run-s lint type-check test"
   },
@@ -31,15 +26,11 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "^9.5.0",
-    "@types/eslint__js": "^8.42.3",
-    "@types/node": "^20.14.5",
-    "eslint": "^9.5.0",
-    "prettier": "^3.3.2",
-    "tsup": "^8.1.0",
-    "tsx": "^4.15.6",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "8.0.0-alpha.30",
-    "npm-run-all2": "^6.2.0"
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.10",
+    "npm-run-all2": "^6.2.2",
+    "oxlint": "^0.6.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
   }
 }
