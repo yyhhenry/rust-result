@@ -27,10 +27,10 @@
   "license": "ISC",
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
-    "@types/node": "^20.14.5",
-    "npm-run-all2": "^6.2.0",
+    "@types/node": "^20.14.10",
+    "npm-run-all2": "^6.2.2",
     "oxlint": "^0.6.0",
-    "tsx": "^4.15.6",
-    "typescript": "^5.4.5"
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
   }
 }
